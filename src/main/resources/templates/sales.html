@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="sr" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SZR "CASIO"</title><link rel="stylesheet" th:href="@{/style.css}"></head>
+<body>
+<main class="cash-register">
+  <header><h1>SZR "CASIO"</h1><div id="notice" role="alert"></div></header>
+  <section class="entry disabled" id="entry">
+    <button id="start" class="primary">ZAPOCNI KUCANJE</button>
+    <label class="code-field">Sifra artikla:<input id="code" autocomplete="off" disabled></label>
+    <label class="name-field">Naziv artikla:<input id="name" autocomplete="off" disabled></label>
+    <div class="search"><span>Pretraga artikala:</span><input id="search-display" readonly disabled><select id="results" size="7" disabled></select></div>
+    <label class="quantity-field">Kolicina:<input id="quantity" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" disabled></label>
+    <label class="price-field">Prodajna cijena u eurima:<input id="price" type="text" inputmode="decimal" autocomplete="off" disabled></label>
+    <button id="add" disabled>UNESI</button><button id="remove" disabled>&lt;&lt;&lt;</button><button id="execute" class="strong" disabled>I Z V R S I</button>
+  </section>
+  <section class="receipt"><table><thead><tr><th>SIFRA_ARTIKLA</th><th>NAZIV_ARTIKLA</th><th>KOLICINA</th><th>PRODAJNA_CIJENA_U_EURIMA</th></tr></thead><tbody id="lines"></tbody></table><div class="batch">UKUPNO ZA NAPLATU: <strong id="batch-total">0.00</strong> EUR</div></section>
+  <footer><span class="date">Datum: <strong id="date"></strong></span><button id="close-day" class="danger">ZAKLJUCI DAN</button><span class="daily-total">UKUPNO: <strong id="daily-total">0.00</strong> EUR</span></footer>
+</main>
+<dialog id="deposit-dialog"><form method="dialog"><h2>DAN JE ZAKLJUCEN!</h2><label>KOJI IZNOS ZELITE DA UPLATITE ZA DNEVNI PAZAR:<input id="deposit" type="number" min="0" step="0.01"></label><menu><button value="cancel">ODUSTANI</button><button id="confirm-close" value="default">UNESI</button></menu></form></dialog>
+<script th:src="@{/app.js}"></script>
+</body></html>
