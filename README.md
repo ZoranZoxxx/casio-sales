@@ -40,11 +40,11 @@ Web aplikacija za prodaju artikala i vođenje dnevnog prometa, razvijena u Java/
 
 ## Baza podataka
 
-Aplikacija je trenutno prilagođena postojećoj SQLite bazi iz starog programa.
+Aplikacija koristi SQLite bazu prilagođenu postojećoj strukturi starog programa.
 
-Originalna baza se ne koristi direktno tokom razvoja. Projekat koristi odvojenu radnu kopiju baze kako bi originalni podaci ostali zaštićeni.
+U repozitorijumu je uključena **sanitizovana demo kopija baze** namenjena pokretanju i demonstraciji aplikacije.
 
-Originalna baza i stvarni poslovni podaci nisu deo Git repozitorijuma.
+Istorijski promet i mesečni troškovi uklonjeni su iz demo baze. Originalna baza starog programa nije deo Git repozitorijuma.
 
 ## Struktura projekta
 
@@ -60,6 +60,8 @@ spring-boot-app/
 │   │   │       ├── repository/
 │   │   │       └── service/
 │   │   └── resources/
+│   │       ├── data/
+│   │       │   └── baza_proizvoda.db
 │   │       ├── static/
 │   │       └── templates/
 │   └── test/
@@ -87,35 +89,5 @@ http://localhost:8080/
 Aplikacija se može pokrenuti i kao izgrađeni JAR:
 
 ```text
-java -jar target/casio-sales-1.0.0.jar
+java -jar target/casio
 ```
-
-## Testovi
-
-Projekat sadrži integracione testove za ključne funkcionalnosti prodaje, uključujući:
-
-* pretragu artikala
-* izbor artikla
-* količinu
-* ručnu prodajnu cenu
-* obračun ukupnih vrednosti
-* obračun zarade
-* smanjenje stanja
-* dnevni promet
-* zaključivanje dana
-* uplatu pazara
-* sprečavanje prodaje nakon zaključivanja dana
-
-## Git
-
-Projekat se razvija u privatnom GitHub repozitorijumu:
-
-`ZoranZoxxx/casio-sales`
-
-Baza podataka, runtime podaci, Maven repository, build fajlovi i drugi lokalni razvojni artefakti izuzeti su iz Git repozitorijuma putem `.gitignore`.
-
-## Status projekta
-
-Osnovna web verzija prodajnog programa je funkcionalna i testirana.
-
-Dalji razvoj obuhvataće postepeno dodavanje funkcionalnosti potrebnih za potpunu zamenu starog AutoIt programa.
