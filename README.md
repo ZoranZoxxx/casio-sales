@@ -1,10 +1,16 @@
 # CASIO Sales
 
-Web aplikacija za prodaju artikala i vođenje dnevnog prometa, razvijena u Java/Spring Boot okruženju, sa SQLite bazom podataka i web korisničkim interfejsom.
+Web aplikacija za prodaju artikala i vođenje dnevnog prometa, razvijena kao moderna Java/Spring Boot verzija postojećeg desktop programa.
+
+Aplikacija koristi **Spring Boot, Thymeleaf, SQLite i Spring JDBC**, uz web interfejs prilagođen načinu rada originalnog CASIO programa.
+
+## Izgled aplikacije
+
+![CASIO Sales — glavni ekran](screenshots/sales-screen.jpg)
 
 ## Tehnologije
 
-* Java 17+
+* Java 17
 * Spring Boot 3.3.5
 * Maven
 * Thymeleaf
@@ -72,7 +78,7 @@ spring-boot-app/
 
 ## Pokretanje
 
-Potrebni su Java i Maven.
+Potrebni su Java 17 i Maven.
 
 Pokretanje preko Maven-a:
 
@@ -86,8 +92,27 @@ Nakon pokretanja aplikacija je dostupna na:
 http://localhost:8080/
 ```
 
-Aplikacija se može pokrenuti i kao izgrađeni JAR:
+Aplikacija se može pokrenuti i kao izgrađeni Spring Boot JAR.
 
-```text
-java -jar target/casio
-```
+## Testovi
+
+Projekat sadrži integracione testove za ključne poslovne funkcionalnosti, uključujući:
+
+* pretragu i izbor artikala
+* obračun prodaje
+* smanjenje zalihe
+* ažuriranje dnevnog prometa
+* zaključivanje dana
+* sprečavanje prodaje nakon zaključivanja dana
+
+## GitHub
+
+Repozitorijum je javno dostupan:
+
+**github.com/ZoranZoxxx/casio-sales**
+
+Demo baza je uključena u repozitorijum, dok su runtime podaci, build fajlovi i lokalni razvojni fajlovi isključeni preko `.gitignore`.
+
+## Status
+
+Projekat je funkcionalna Spring Boot web aplikacija zasnovana na postojećem poslovnom programu, sa implementiranim osnovnim tokom prodaje, upravljanjem zalihama i dnevnim prometom.
